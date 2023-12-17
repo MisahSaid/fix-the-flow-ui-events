@@ -14,7 +14,7 @@ function jumpHandler() {
 }
 
 
-// mouseover 
+// 1. mouseover 
 let frontend = document.querySelector('a:nth-of-type(1)')
 
 // interaction.addEventListener('mouseover', colorChangePink)
@@ -28,7 +28,7 @@ function colorChangePink () {
 }
 
 
-// mouseout
+// 2. mouseout
 let sprint5 = document.querySelector('a:nth-of-type(5)')
 
 sprint5.addEventListener('mouseout', bgChange)
@@ -38,7 +38,7 @@ function bgChange () {
   console.log('bgcolor')
 }
 
-// double click
+// 3. double click
 let fix = document.querySelector('a:nth-of-type(6)')
 
 fix.addEventListener('dblclick', spiegelbeeld)
@@ -48,7 +48,7 @@ function spiegelbeeld () {
   console.log('mirror mirror on the wall!')
 }
 
-// touch start
+// 4. touch start
 let interface = document.querySelector('a:nth-of-type(10)')
 
 interface.addEventListener('touchdown', ontap)
@@ -59,7 +59,7 @@ function ontap () {
 }
 
 
-// touchend
+// 5. touchend
 let userflow = document.querySelector('a:nth-of-type(11)')
 
 userflow.addEventListener('touchend', touched)
@@ -67,4 +67,53 @@ userflow.addEventListener('touchend', touched)
 function touched () {
   userflow.classList.toggle('bgChangeColor')
   console.log('touchend')
+}
+
+
+// 6. Mousemove Event
+// ik selecteer hier de button design 
+let design = document.querySelector('a:nth-of-type(2)');
+
+// Voeg een eventlistener toe voor het 'mousemove' event
+design.addEventListener('mousemove', showImage);
+
+// Functie om de foto te laten zien
+function showImage() {
+  // Maak een nieuw img-element aan
+  let image = document.createElement('img');
+  
+  // de bron of te wel de img die ik wil laten zien
+  image.src = 'https://i.pinimg.com/736x/a1/a2/a7/a1a2a76d7ae6fee0a3dd36554b72664a.jpg';
+  
+  //  de stijl in om de afbeelding over het hele scherm te bedekken
+  image.style.position = 'fixed';
+  image.style.top = '0';
+  image.style.left = '0';
+  image.style.width = '100%';
+  image.style.height = '100%';
+  image.style.zIndex = '9999'; 
+
+  // Voeg de afbeelding toe aan de body van de pagina --> Ask krijn lol
+  document.body.appendChild(image);
+}
+
+
+
+// 7.keypress 
+let and = document.querySelector('a:nth-of-type(3)');
+
+// hier word gezegd dat wat, de computer moet doen als de knop word ingedrukt op het 'and'-element  
+and.addEventListener('keypress', keyPressed);{
+  console.log('key ingedrukt: ' + event.key);
+}
+
+
+// 8.  contextmenu --> tekst verandering
+let development = document.querySelector('a:nth-of-type(4)');
+
+development.addEventListener('contextmenu', changeContext);
+
+function changeContext (event){
+  event.preventDefault ();
+  development.textContent = 'hiiiiiii!';
 }
